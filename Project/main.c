@@ -39,16 +39,23 @@ int main(void)
     /* Infinite loop. */
     while (1)
     {
-    	if (get_calibrated_prox(0)>=200 || get_calibrated_prox(7)>=200)
+    	if (get_calibrated_prox(1)>=80)
     	{
     		set_front_led(2);
-    		left_motor_set_speed(500);
-    		right_motor_set_speed(-500);
+    		left_motor_set_speed(-200);
+    		right_motor_set_speed(200);
+    	}
+    	else if (get_calibrated_prox(6)>=80)
+    	{
+    		set_front_led(2);
+    		left_motor_set_speed(200);
+    		right_motor_set_speed(-200);
     	}
     	else
     	{
-    		left_motor_set_speed(500);
-    		right_motor_set_speed(500);
+    		set_front_led(0);
+    		left_motor_set_speed(150);
+    		right_motor_set_speed(150);
     	}
     }
 }
